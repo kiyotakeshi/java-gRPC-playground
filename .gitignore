@@ -41,3 +41,6 @@ openapi/openapi.json
 
 ### maven ###
 target
+
+### custom ###
+person.js
