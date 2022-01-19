@@ -1,3 +1,51 @@
+# gRPC
+
+- traditional way(HTTP) problem
+    - TCP/IP connection cost
+        - three way handshake
+        - you need to wait for the request to come back before sending another request where same connection
+    - HTTP is stateless
+        - Header info is heavy
+        - headers are sent in every request
+        - plain text
+        - can not be compressed
+    - serialization & deserialization
+        - we understand text format, machines understand binary format
+    - API contract
+        - we can use OpenAPI, but it's not standard
+        - service developer can also provide the claim library(add dependency)
+    - Client SDK
+        - client use various language
+
+- stubby is RPC Framework from Google
+    - this is  tightly coupled with infrastructure...
+    - so Google has developed a new Open Source framework gRPC(Remote Procedure Call)
+
+- HTTP/2
+    - enable multiplexing, that is one single connection and sending multiple parallel request
+        - you don't have to wait for the response to come back
+    - binary protocol
+    - header compression
+        - we don't have to repeat everthing(same information is implicit). we are sending only the changes.
+
+- gRPC
+    - HTTP2 is default(binary, multiplexing, flow-conrol)
+    - it also provides the bindings for unblocking our streaming operations
+    - Protobuf
+        - typing auto generated data transfer objects
+
+- REST is resource oriented architecture style
+
+- gRPC is more flexible & action oriented
+
+- Protobuf is IDL(inteface description language) for API
+  - platform and language neutral
+  - serializing,deserializing structured data
+  - very fast and optimized for interservices communication
+  - provides client libraries automatically for many languages
+
+---
+
 - create java code
 
 ```shell
@@ -19,11 +67,13 @@ target/generated-sources/protobuf/java/com/kiyotakeshi/models/PersonOuterClass.j
 - create javascript code
 
 ```shell
-$ ./target/protoc-plugins/protoc-3.6.1-osx-x86_64.exe --js_out=./ src/main/proto/*proto       
+$ ./target/protoc-plugins/protoc-3.6.1-osx-x86_64.exe --js_out=./ src/main/proto/*proto
 
 $ ls person.js 
 .rw-r--r-- 5.0k kiyotakeshi 18 Jan 22:48 person.js
 ```
+
+or [install protobuf cli](https://github.com/protocolbuffers/protobuf/releases/tag/v3.13.0)
 
 ```shell
 $ ./target/protoc-plugins/protoc-3.6.1-osx-x86_64.exe --help
