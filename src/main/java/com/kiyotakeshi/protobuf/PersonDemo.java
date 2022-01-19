@@ -1,5 +1,6 @@
 package com.kiyotakeshi.protobuf;
 
+import com.google.protobuf.Int32Value;
 import com.kiyotakeshi.models.Person;
 
 import java.io.IOException;
@@ -12,12 +13,12 @@ public class PersonDemo {
     public static void main(String[] args) throws IOException {
         Person mike1 = Person.newBuilder()
                 .setName("mike")
-                .setAge(29)
+                .setAge(Int32Value.newBuilder().setValue(29).build())
                 .build();
 
         Person mike2 = Person.newBuilder()
                 .setName("mike")
-                .setAge(29)
+                .setAge(Int32Value.newBuilder().setValue(29).build())
                 .build();
 
         System.out.println(mike1);

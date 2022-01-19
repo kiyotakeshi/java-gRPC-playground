@@ -2,13 +2,26 @@ syntax = "proto3";
 
 import "common/address.proto";
 import "common/car.proto";
+import "google/protobuf/wrappers.proto";
 
 option java_multiple_files = true;
 option java_package = "com.kiyotakeshi.models";
 
 message Person {
-  string name = 1;
-  int32 age = 2;
+  string name = 1; // 1 is tag
+  // wrapper type
+  google.protobuf.Int32Value age = 2;
   common.Address address = 3;
   repeated common.Car car = 4;
 }
+
+/*
+when protocol buffer serialize data and send object,
+it does not use name, instead it uses tag to serialize and deserialize.
+
+"name": "sam",
+"age": 10
+
+1=sam
+2=10
+ */

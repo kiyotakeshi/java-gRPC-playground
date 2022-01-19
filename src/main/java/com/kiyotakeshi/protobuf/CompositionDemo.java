@@ -1,5 +1,6 @@
 package com.kiyotakeshi.protobuf;
 
+import com.google.protobuf.Int32Value;
 import com.kiyotakeshi.models.Address;
 import com.kiyotakeshi.models.Car;
 import com.kiyotakeshi.models.Person;
@@ -33,11 +34,12 @@ public class CompositionDemo {
 
         Person mike = Person.newBuilder()
                 .setName("mike")
-                .setAge(29)
+                .setAge(Int32Value.newBuilder().setValue(29).build())
                 .addAllCar(cars)
                 .setAddress(address)
                 .build();
 
         System.out.println(mike);
+        System.out.println(mike.hasAge());
     }
 }
