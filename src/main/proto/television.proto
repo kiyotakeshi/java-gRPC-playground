@@ -7,10 +7,12 @@ option java_multiple_files = true;
 option java_package = "com.kiyotakeshi.models";
 
 // v1
+/*
 message Television {
   string brand = 1;
   int32 year = 2;
 }
+ */
 
 // v2
 /*
@@ -19,6 +21,24 @@ message Television {
   int32 model = 2;
   Type type = 3;
 }
+*/
+
+// v3
+/*
+message Television {
+  string brand = 1;
+  Type type = 3;
+}
+ */
+
+// v4
+message Television {
+  string brand = 1;
+  reserved 2;
+  reserved "year", "model";
+  Type type = 3;
+  int32 price = 4;
+}
 
 enum Type {
   HD = 0;
@@ -26,4 +46,3 @@ enum Type {
   fourK = 2;
   OLED = 3;
 }
- */
