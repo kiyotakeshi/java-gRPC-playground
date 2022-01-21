@@ -33,16 +33,32 @@
     - it also provides the bindings for unblocking our streaming operations
     - Protobuf
         - typing auto generated data transfer objects
+    - Client's call to the server can be Sync(blocking, wait for the response)/Async
 
 - REST is resource oriented architecture style
 
 - gRPC is more flexible & action oriented
 
-- Protobuf is IDL(inteface description language) for API
+- Protobuf is IDL(interface description language) for API
   - platform and language neutral
   - serializing,deserializing structured data
-  - very fast and optimized for interservices communication
+  - very fast and optimized for inter services communication
   - provides client libraries automatically for many languages
+
+- RPC has four type([RPC life cycle](https://grpc.io/docs/what-is-grpc/core-concepts/#rpc-life-cycle))
+  - Unary
+    - traditional request,one request and one response
+
+  - Server-streaming
+    - one client request and server sent multiple streaming response
+    - one to many response model
+    - pagination(chunk of huge response, receiving side cannot handle all the response at once)
+
+  - Client-streaming
+    - client sends multiple streaming request and server back only one response 
+    - file upload(huge file separate small chunk)
+
+  - Bidirectional-streaming
 
 ---
 
