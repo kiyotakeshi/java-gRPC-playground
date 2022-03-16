@@ -1,13 +1,11 @@
 package com.kiyotakeshi.protobuf;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.protobuf.Int32Value;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.kiyotakeshi.json.JPerson;
 import com.kiyotakeshi.models.Person;
 
-import java.io.IOException;
 
 public class PerformanceTest {
 
@@ -53,13 +51,13 @@ public class PerformanceTest {
     }
 
     private static void runPerformanceTest(Runnable runnable, String method) {
-        long time1 = System.currentTimeMillis();
+        long start = System.currentTimeMillis();
         // for (int i = 0; i < 1; i++) {
         for (int i = 0; i < 5_000_000; i++) {
             runnable.run();
         }
-        long time2 = System.currentTimeMillis();
+        long end = System.currentTimeMillis();
 
-        System.out.println(method + " : " + (time2 - time1) + " ms");
+        System.out.println(method + " : " + (end - start) + " ms");
     }
 }

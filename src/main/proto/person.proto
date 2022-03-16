@@ -8,7 +8,7 @@ option java_multiple_files = true;
 option java_package = "com.kiyotakeshi.models";
 
 message Person {
-  string name = 1; // 1 is tag
+  string name = 1; // 1 is tag(field number)
   // wrapper type
   google.protobuf.Int32Value age = 2;
   common.Address address = 3;

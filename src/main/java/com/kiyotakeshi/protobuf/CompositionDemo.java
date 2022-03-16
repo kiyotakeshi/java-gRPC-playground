@@ -34,7 +34,10 @@ public class CompositionDemo {
 
         Person mike = Person.newBuilder()
                 .setName("mike")
-                .setAge(Int32Value.newBuilder().setValue(29).build())
+                .setAge(
+                        // for wrapper type
+                        Int32Value.newBuilder().setValue(29).build()
+                )
                 .addAllCar(cars)
                 .setAddress(address)
                 .build();

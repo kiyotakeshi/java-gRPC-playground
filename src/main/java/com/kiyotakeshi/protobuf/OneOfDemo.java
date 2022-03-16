@@ -1,8 +1,8 @@
 package com.kiyotakeshi.protobuf;
 
-import com.kiyotakeshi.modeles.Credentials;
-import com.kiyotakeshi.modeles.EmailCredentials;
-import com.kiyotakeshi.modeles.PhoneOTP;
+import com.kiyotakeshi.models.Credentials;
+import com.kiyotakeshi.models.EmailCredentials;
+import com.kiyotakeshi.models.PhoneOTP;
 
 public class OneOfDemo {
 
